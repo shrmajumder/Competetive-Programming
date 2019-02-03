@@ -1,0 +1,41 @@
+class Solution:
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        sizeA = len(a)
+        sizeB = len(b)
+        if sizeA > sizeB:
+            for i in range(0, sizeA - sizeB):
+                b = '0' + b
+
+        if sizeB > sizeA:
+            for i in range(0, sizeB - sizeA):
+                a = '0' + a
+
+        carry = 0
+        result = ''
+
+        for i in range(len(a)-1, -1, -1):
+            unitA = int(a[i])
+            unitB = int(b[i])
+            if unitA + unitB + carry == 1:
+                carry = 0
+                result = '1' + result
+            elif unitA + unitB + carry == 0:
+                carry = 0
+                result = '0' + result
+            elif unitA + unitB + carry == 2:
+                carry = 1
+                result = '0' + result
+                if i == 0:
+                    result = str(carry) + result
+            elif unitA + unitB + carry == 3:
+                carry = 1
+                result = '1' + result
+                if i ==0:
+                    result = str(carry) + result
+
+        return result
