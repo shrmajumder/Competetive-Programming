@@ -1,0 +1,22 @@
+class Solution(object):
+    def insertIntoBST(self, root, val):
+        """
+        :type root: TreeNode
+        :type val: int
+        :rtype: TreeNode
+        """
+        if not root:
+            root=TreeNode(val)
+        
+        if root:
+            if val>root.val:
+                if root.right:
+                    self.insertIntoBST(root.right,val)
+                else:
+                    root.right=TreeNode(val)
+            elif val<root.val:
+                if root.left:
+                    root.left=self.insertIntoBST(root.left,val)
+                else:
+                    root.left=TreeNode(val)
+        return (root)
