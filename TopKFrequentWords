@@ -1,0 +1,23 @@
+class Solution(object):
+    def topKFrequent(self, words, k):
+        """
+        :type words: List[str]
+        :type k: int
+        :rtype: List[str]
+        """
+        
+        dict={}
+        out=[]
+        for word in words:
+            if word in dict:
+                dict[word]=dict[word]+1
+            else:
+                dict[word]=1
+        cnt=0
+        a=[]
+        #dict_1=sorted(dict.values, key=lambda x: x[1], reverse=True):
+        for key, value in sorted(dict.iteritems(), key=lambda (k,v): (-v,k)):
+                  if cnt<k:
+                     a.append(key)
+                     cnt=cnt+1
+        return (a)
