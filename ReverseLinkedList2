@@ -1,0 +1,27 @@
+class Solution(object):
+    def reverseBetween(self, head, m, n):
+        """
+        :type head: ListNode
+        :type m: int
+        :type n: int
+        :rtype: ListNode
+        """
+        a=[]
+        b=[]
+        dummy=head
+        while dummy:
+            a.append(dummy.val)
+            #print (dummy.val)
+            dummy=dummy.next
+            
+        while(m-1<n-1):
+            a[m-1],a[n-1]=a[n-1],a[m-1]
+            m=m+1
+            n=n-1
+        
+        dummy=head
+        for i in range(len(a)):
+            curr=ListNode(a[i])
+            dummy.next=curr
+            dummy=curr
+        return head.next
