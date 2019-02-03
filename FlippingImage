@@ -1,0 +1,20 @@
+class Solution(object):
+    def flipAndInvertImage(self, A):
+        """
+        :type A: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        for i in A:
+            #print (i)
+            i.reverse()
+            #print (i)
+            for j in range(0,len(i)):
+                #print (i[j])
+                #print (i[j])
+                if i[j]==0 :
+                    i[j]=1
+                    #print ("1",i[j])
+                else:
+                    #print ("hi")
+                    i[j]=0
+        return (A)
