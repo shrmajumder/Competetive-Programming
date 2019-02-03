@@ -1,0 +1,19 @@
+class Solution(object):
+    def isNStraightHand(self, hand, W):
+        """
+        :type hand: List[int]
+        :type W: int
+        :rtype: bool
+        """
+        if len(hand) % W != 0:
+            return False
+        hand = sorted(hand)
+        while len(hand) > 0:
+            x = hand.pop(0)
+            for i in range(1, W):
+                if (x+i) in hand:
+                    hand.remove(x+i)
+                else:
+                    return False
+        return True
+    
