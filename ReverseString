@@ -1,0 +1,17 @@
+class Solution(object):
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        sl=list(s)
+        #print (sl)
+        n=len(s)
+        for i in range(n//2):
+            temp=sl[i]
+            sl[i]=sl[n-1-i]
+            sl[n-1-i]=temp
+        
+        #print(sl)
+        s="".join(sl)
+        return s
