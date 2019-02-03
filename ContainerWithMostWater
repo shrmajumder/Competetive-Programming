@@ -1,0 +1,23 @@
+class Solution:
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        
+        n=len(height)
+        start=0
+        end=n-1
+        count=0
+        while (start<end):
+            diff=end-start
+            area = diff*min(height[start],height[end])
+            print (area)
+            if area > count :
+                count=area
+            if (min(height[start],height[end])==height[start]):
+                start=start+1
+            else:
+                end=end-1
+        return (count)
+            
