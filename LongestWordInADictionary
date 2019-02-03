@@ -1,0 +1,24 @@
+class Solution(object):
+    def findLongestWord(self, s, d):
+        """
+        :type s: str
+        :type d: List[str]
+        :rtype: str
+        """
+        #d.sort(key=len, reverse=True)
+        #print (d)                   
+        ret=""
+        
+        for word in d:
+            ptr=0
+            
+            for char in s:
+                if char==word[ptr]:
+                    ptr=ptr+1
+                    if ptr==len(word):
+                        if ptr==len(ret):
+                            ret=min(word,ret)
+                        elif ptr>len(ret):
+                            ret=word
+                        break
+        return ret
