@@ -1,0 +1,26 @@
+class MyCalendar(object):
+
+    def __init__(self):
+        self.schedule=[]
+        
+
+    def book(self, start, end):
+        """
+        :type start: int
+        :type end: int
+        :rtype: bool
+        """
+        find = False
+        for i in range(len(self.schedule)):
+            #print (self.schedule)
+            time = self.schedule[i]
+            if start < time[1] and end > time[0]:
+                return False
+            if time[0] > start:
+                self.schedule.insert(i, (start, end))
+                #print ("1",self.schedule)
+                find = True
+                return True
+        if not find:
+            self.schedule.append((start, end))
+        return True
