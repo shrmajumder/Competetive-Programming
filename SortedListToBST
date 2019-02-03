@@ -1,0 +1,23 @@
+class Solution(object):
+    def sortedListToBST(self, head):
+        """
+        :type head: ListNode
+        :rtype: TreeNode
+        """
+        dummy=head
+        a=[]
+        while dummy!=None:
+            temp=dummy.val
+            a.append(temp)
+            dummy=dummy.next
+        return self.check(a)
+    def check(self,a):
+        
+        if(len(a)!=0):
+            mid=int(len(a)/2)
+            root=TreeNode(a[mid])
+            root.left=self.check(a[:mid])
+            root.right=self.check(a[mid+1:])
+        else:
+            root=None
+        return root
