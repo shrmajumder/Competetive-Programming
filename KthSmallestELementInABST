@@ -1,0 +1,22 @@
+class Solution(object):
+    
+    def inorderTraversal(self, root):
+        res = []
+        if root:
+            res = self.inorderTraversal(root.left)
+            res.append(root.val)
+            res = res + self.inorderTraversal(root.right)
+        #print (res)
+        return res
+    
+    def kthSmallest(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        
+        fin=[]
+        fin=self.inorderTraversal(root)
+        print (fin)
+        return fin[k-1]
