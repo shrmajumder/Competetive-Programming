@@ -1,0 +1,36 @@
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(0)
+        current = dummy
+        value1=RevNum(l1)
+        value2=RevNum(l2)
+        sum=value1+value2
+        if sum==0:
+         return dummy
+        while (sum>0):
+          rem=sum%10
+          current.next=ListNode(rem)
+          current=current.next
+          sum=sum/10
+        return dummy.next
+        
+            
+        
+        
+def RevNum(l):
+        a=[]
+        str1=""
+        while l:
+            val=l.val
+            a.append(val)
+            l=l.next
+        n=len(a)
+        for i in range (n-1,-1,-1):
+            str1=str1+str(a[i])
+        num=int(str1)
+        return num
