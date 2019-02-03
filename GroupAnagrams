@@ -1,0 +1,16 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        
+        dict={}
+        for s in strs:
+                st="".join(sorted(s))
+                print (st)
+                if st in dict:
+                    dict[st]=dict[st]+[s]
+                else:
+                    dict[st]=[s]
+        return (dict.values())
